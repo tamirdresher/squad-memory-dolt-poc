@@ -1,0 +1,26 @@
+{
+  "intendedRepository": "tamirdresher/squad-memory-dolt-poc",
+  "publishOnly": [
+    ".gitignore",
+    ".npmrc",
+    "LICENSE",
+    "PUBLICATION.json",
+    "README.md",
+    "command.test.ts",
+    "docs/PROVENANCE.md",
+    "docs/RESULTS.md",
+    "memory-lifecycle-exclusion.test.ts",
+    "package-lock.json",
+    "package.json",
+    "provider.test.ts",
+    "provider.ts",
+    "scripts/apply-sdk-patch.mjs",
+    "scripts/audit-publication.mjs",
+    "scripts/mutation-check.mjs",
+    "scripts/normalize-lock.mjs",
+    "tsconfig.json",
+    "vitest.config.ts"
+  ],
+  "exclude": ["node_modules", ".scratch"],
+  "notes": "Only these files are authorized for review as public artifacts. Publication/commit/push require a separate authorization."
+}

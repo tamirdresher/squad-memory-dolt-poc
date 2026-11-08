@@ -1,0 +1,21 @@
+{
+  "name": "squad-memory-dolt-poc",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "engines": { "node": ">=22.5.0" },
+  "scripts": {
+    "postinstall": "node scripts/apply-sdk-patch.mjs",
+    "test": "vitest run --config vitest.config.ts",
+    "demo": "vitest run --config vitest.config.ts --reporter verbose",
+    "test:mutation": "node scripts/mutation-check.mjs",
+    "typecheck": "tsc --noEmit -p tsconfig.json"
+  },
+  "dependencies": { "@bradygaster/squad-sdk": "0.13.1" },
+  "devDependencies": {
+    "@types/node": "22.19.15",
+    "typescript": "6.0.3",
+    "vitest": "4.1.9"
+  }
+}
