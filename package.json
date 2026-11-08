@@ -7,9 +7,12 @@
   "engines": { "node": ">=22.5.0" },
   "scripts": {
     "postinstall": "node scripts/apply-sdk-patch.mjs",
-    "test": "vitest run --config vitest.config.ts",
-    "demo": "vitest run --config vitest.config.ts --reporter verbose",
+    "test": "tsc -p tsconfig.live.json && vitest run --config vitest.config.ts",
+    "demo": "npm test -- --reporter verbose",
     "test:mutation": "node scripts/mutation-check.mjs",
+    "test:mutation:native": "node scripts/native-mutation-check.mjs",
+    "live": "tsc -p tsconfig.live.json && node .scratch/live-build/live/run.js",
+    "live:native": "tsc -p tsconfig.live.json && node .scratch/live-build/live/run.js --native",
     "typecheck": "tsc --noEmit -p tsconfig.json"
   },
   "dependencies": { "@bradygaster/squad-sdk": "0.13.1" },

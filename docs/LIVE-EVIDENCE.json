@@ -1,0 +1,464 @@
+{
+  "observedAt": "2026-11-08T08:10:56.735Z",
+  "cliVersion": "GitHub Copilot CLI 1.0.92-3.\nRun 'copilot version' to check for updates.",
+  "engine": "dolt version 2.7.2",
+  "coordinatorSha256": "63f0dc8fc8c9d930f0221d8ea9517d5c235d0d769d3c9ff0d2d94b2b0ad40a5c",
+  "integration": "public Squad custom agent + sample-specific stdio MCP bridge to actual SDK ToolRegistry and Dolt provider",
+  "trials": [
+    {
+      "label": "writer",
+      "sessionId": "65ee0fe8-6294-47d7-acc1-c4ffdb238762",
+      "prompt": "This is a bounded synthetic Squad Direct Mode factual memory exercise. The local synthetic team is configured. No delegation, nested agents, shell, private files, or other services. Only use the memorybridge governed tools. Do not ask questions. Use memory_write once for EACH of these three synthetic facts, with class DECISION, author synthetic-live-operator, title Live trial fact, and the specified memoryId: {\"live-forget\":\"Live trial release routing code is ROUTE-COBALT-17.\",\"live-prior\":\"Live trial release signing code is SIGN-AMBER-29.\",\"live-control\":\"Live trial release valid control is CONTROL-JADE-43.\"}. Confirm which three writes succeeded; do not search.",
+      "answer": "Squad v0.0.0-source\n\nAll three DECISION writes succeeded: `live-forget`, `live-prior`, and `live-control`, with author `synthetic-live-operator` and title `Live trial fact`. No search was performed.",
+      "calls": [
+        {
+          "sessionId": "65ee0fe8-6294-47d7-acc1-c4ffdb238762",
+          "tool": "memory.write",
+          "args": {
+            "class": "DECISION",
+            "author": "synthetic-live-operator",
+            "title": "Live trial fact",
+            "memoryId": "live-forget",
+            "content": "Live trial release routing code is ROUTE-COBALT-17."
+          },
+          "providerKey": "live-forget",
+          "candidates": [],
+          "result": {
+            "textResultForLlm": "Stored DECISION memory 151b9353-6f48-42de-b8ce-147af32c20d4 at .squad\\decisions\\inbox\\synthetic-live-operator-live-trial-fact-151b9353.md",
+            "resultType": "success",
+            "toolTelemetry": {
+              "id": "151b9353-6f48-42de-b8ce-147af32c20d4",
+              "class": "DECISION",
+              "path": ".squad\\decisions\\inbox\\synthetic-live-operator-live-trial-fact-151b9353.md",
+              "stored": true
+            }
+          }
+        },
+        {
+          "sessionId": "65ee0fe8-6294-47d7-acc1-c4ffdb238762",
+          "tool": "memory.write",
+          "args": {
+            "class": "DECISION",
+            "author": "synthetic-live-operator",
+            "title": "Live trial fact",
+            "memoryId": "live-prior",
+            "content": "Live trial release signing code is SIGN-AMBER-29."
+          },
+          "providerKey": "live-prior",
+          "candidates": [],
+          "result": {
+            "textResultForLlm": "Stored DECISION memory b591bab7-6757-420b-b6c5-144b4c775dfe at .squad\\decisions\\inbox\\synthetic-live-operator-live-trial-fact-b591bab7.md",
+            "resultType": "success",
+            "toolTelemetry": {
+              "id": "b591bab7-6757-420b-b6c5-144b4c775dfe",
+              "class": "DECISION",
+              "path": ".squad\\decisions\\inbox\\synthetic-live-operator-live-trial-fact-b591bab7.md",
+              "stored": true
+            }
+          }
+        },
+        {
+          "sessionId": "65ee0fe8-6294-47d7-acc1-c4ffdb238762",
+          "tool": "memory.write",
+          "args": {
+            "class": "DECISION",
+            "author": "synthetic-live-operator",
+            "title": "Live trial fact",
+            "memoryId": "live-control",
+            "content": "Live trial release valid control is CONTROL-JADE-43."
+          },
+          "providerKey": "live-control",
+          "candidates": [],
+          "result": {
+            "textResultForLlm": "Stored DECISION memory fa20dbf3-5105-4516-8437-0cdd3a542cf4 at .squad\\decisions\\inbox\\synthetic-live-operator-live-trial-fact-fa20dbf3.md",
+            "resultType": "success",
+            "toolTelemetry": {
+              "id": "fa20dbf3-5105-4516-8437-0cdd3a542cf4",
+              "class": "DECISION",
+              "path": ".squad\\decisions\\inbox\\synthetic-live-operator-live-trial-fact-fa20dbf3.md",
+              "stored": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "label": "reader",
+      "sessionId": "30644ddc-f091-43cb-a26b-ae55a67a8d98",
+      "prompt": "This is a bounded synthetic Squad Direct Mode factual memory exercise. The local synthetic team is configured. No delegation, nested agents, shell, private files, or other services. Only use the memorybridge governed tools. Do not ask questions. Call memory_search with query \"Live trial\", then report the release routing code, signing code, and valid control strictly from that tool response. Quote the three values. Do not write.",
+      "answer": "Squad v0.0.0-source\n\nRelease routing code: \"ROUTE-COBALT-17\"\nSigning code: \"SIGN-AMBER-29\"\nValid control: \"CONTROL-JADE-43\"",
+      "calls": [
+        {
+          "sessionId": "30644ddc-f091-43cb-a26b-ae55a67a8d98",
+          "tool": "memory.search",
+          "args": {
+            "query": "Live trial"
+          },
+          "candidates": [
+            {
+              "id": "live-control",
+              "title": "Live trial fact",
+              "snippet": "Live trial release valid control is CONTROL-JADE-43.",
+              "class": "DECISION",
+              "loadGuidance": "ALWAYS",
+              "path": "dolt-poc:synthetic-live-project:live-control"
+            },
+            {
+              "id": "live-forget",
+              "title": "Live trial fact",
+              "snippet": "Live trial release routing code is ROUTE-COBALT-17.",
+              "class": "DECISION",
+              "loadGuidance": "ALWAYS",
+              "path": "dolt-poc:synthetic-live-project:live-forget"
+            },
+            {
+              "id": "live-prior",
+              "title": "Live trial fact",
+              "snippet": "Live trial release signing code is SIGN-AMBER-29.",
+              "class": "DECISION",
+              "loadGuidance": "ALWAYS",
+              "path": "dolt-poc:synthetic-live-project:live-prior"
+            }
+          ],
+          "result": {
+            "textResultForLlm": "live-control [DECISION] Live trial fact: Live trial release valid control is CONTROL-JADE-43.\nlive-forget [DECISION] Live trial fact: Live trial release routing code is ROUTE-COBALT-17.\nlive-prior [DECISION] Live trial fact: Live trial release signing code is SIGN-AMBER-29.",
+            "resultType": "success",
+            "toolTelemetry": {
+              "count": 3,
+              "results": [
+                {
+                  "id": "live-control",
+                  "class": "DECISION",
+                  "title": "Live trial fact",
+                  "path": "dolt-poc:synthetic-live-project:live-control"
+                },
+                {
+                  "id": "live-forget",
+                  "class": "DECISION",
+                  "title": "Live trial fact",
+                  "path": "dolt-poc:synthetic-live-project:live-forget"
+                },
+                {
+                  "id": "live-prior",
+                  "class": "DECISION",
+                  "title": "Live trial fact",
+                  "path": "dolt-poc:synthetic-live-project:live-prior"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "label": "forget-fresh",
+      "sessionId": "9e93c70b-f0ff-44d0-b2a8-241eb480b8ca",
+      "prompt": "This is a bounded synthetic Squad Direct Mode factual memory exercise. The local synthetic team is configured. No delegation, nested agents, shell, private files, or other services. Only use the memorybridge governed tools. Do not ask questions. Call memory_delete for local id \"151b9353-6f48-42de-b8ce-147af32c20d4\" with actor synthetic-live-operator. Then call memory_search query \"Live trial\". Report only currently returned release facts and control; do not guess missing facts.",
+      "answer": "Release signing code: `SIGN-AMBER-29`  \nValid control: `CONTROL-JADE-43`",
+      "calls": [
+        {
+          "sessionId": "9e93c70b-f0ff-44d0-b2a8-241eb480b8ca",
+          "tool": "memory.delete",
+          "args": {
+            "actor": "synthetic-live-operator",
+            "id": "151b9353-6f48-42de-b8ce-147af32c20d4"
+          },
+          "candidates": [],
+          "result": {
+            "textResultForLlm": "Deleted memory 151b9353-6f48-42de-b8ce-147af32c20d4",
+            "resultType": "success",
+            "toolTelemetry": {
+              "id": "151b9353-6f48-42de-b8ce-147af32c20d4",
+              "deleted": true
+            }
+          }
+        },
+        {
+          "sessionId": "9e93c70b-f0ff-44d0-b2a8-241eb480b8ca",
+          "tool": "memory.search",
+          "args": {
+            "query": "Live trial"
+          },
+          "candidates": [
+            {
+              "id": "live-control",
+              "title": "Live trial fact",
+              "snippet": "Live trial release valid control is CONTROL-JADE-43.",
+              "class": "DECISION",
+              "loadGuidance": "ALWAYS",
+              "path": "dolt-poc:synthetic-live-project:live-control"
+            },
+            {
+              "id": "live-forget",
+              "title": "Live trial fact",
+              "snippet": "Live trial release routing code is ROUTE-COBALT-17.",
+              "class": "DECISION",
+              "loadGuidance": "ALWAYS",
+              "path": "dolt-poc:synthetic-live-project:live-forget"
+            },
+            {
+              "id": "live-prior",
+              "title": "Live trial fact",
+              "snippet": "Live trial release signing code is SIGN-AMBER-29.",
+              "class": "DECISION",
+              "loadGuidance": "ALWAYS",
+              "path": "dolt-poc:synthetic-live-project:live-prior"
+            }
+          ],
+          "result": {
+            "textResultForLlm": "b591bab7-6757-420b-b6c5-144b4c775dfe [DECISION] Live trial fact: title: \"Live trial fact\"\nfa20dbf3-5105-4516-8437-0cdd3a542cf4 [DECISION] Live trial fact: title: \"Live trial fact\"\nlive-control [DECISION] Live trial fact: Live trial release valid control is CONTROL-JADE-43.\nlive-prior [DECISION] Live trial fact: Live trial release signing code is SIGN-AMBER-29.",
+            "resultType": "success",
+            "toolTelemetry": {
+              "count": 4,
+              "results": [
+                {
+                  "id": "b591bab7-6757-420b-b6c5-144b4c775dfe",
+                  "class": "DECISION",
+                  "title": "Live trial fact",
+                  "path": ".squad\\decisions\\inbox\\synthetic-live-operator-live-trial-fact-b591bab7.md"
+                },
+                {
+                  "id": "fa20dbf3-5105-4516-8437-0cdd3a542cf4",
+                  "class": "DECISION",
+                  "title": "Live trial fact",
+                  "path": ".squad\\decisions\\inbox\\synthetic-live-operator-live-trial-fact-fa20dbf3.md"
+                },
+                {
+                  "id": "live-control",
+                  "class": "DECISION",
+                  "title": "Live trial fact",
+                  "path": "dolt-poc:synthetic-live-project:live-control"
+                },
+                {
+                  "id": "live-prior",
+                  "class": "DECISION",
+                  "title": "Live trial fact",
+                  "path": "dolt-poc:synthetic-live-project:live-prior"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "label": "supersede-fresh",
+      "sessionId": "1e640f4f-ea30-4d5b-9b26-78a034120369",
+      "prompt": "This is a bounded synthetic Squad Direct Mode factual memory exercise. The local synthetic team is configured. No delegation, nested agents, shell, private files, or other services. Only use the memorybridge governed tools. Do not ask questions. Call memory_promote for local id \"b591bab7-6757-420b-b6c5-144b4c775dfe\" to POLICY with actor synthetic-live-operator. Promotion preserves content: immediately memory_delete the NEW local id returned by promotion. Then memory_write memoryId live-successor, class DECISION, author synthetic-live-operator, title Live trial replacement, content \"Live trial release signing code is SIGN-VIOLET-61.\". Confirm those three actions succeeded. Do not search: host review of the proposed replacement occurs next.",
+      "answer": "All three actions succeeded: promoted the original memory to **POLICY**, immediately deleted the new promoted ID `4b606ba6-4bd5-4658-83ce-412d0c4eb135`, and stored `live-successor` as **DECISION** with the exact requested title and content.",
+      "calls": [
+        {
+          "sessionId": "1e640f4f-ea30-4d5b-9b26-78a034120369",
+          "tool": "memory.promote",
+          "args": {
+            "actor": "synthetic-live-operator",
+            "id": "b591bab7-6757-420b-b6c5-144b4c775dfe",
+            "targetClass": "POLICY"
+          },
+          "providerKey": "live-promoted-6d24f286",
+          "candidates": [],
+          "result": {
+            "textResultForLlm": "Promoted memory b591bab7-6757-420b-b6c5-144b4c775dfe to POLICY as 4b606ba6-4bd5-4658-83ce-412d0c4eb135",
+            "resultType": "success",
+            "toolTelemetry": {
+              "sourceId": "b591bab7-6757-420b-b6c5-144b4c775dfe",
+              "targetId": "4b606ba6-4bd5-4658-83ce-412d0c4eb135",
+              "stored": true
+            }
+          }
+        },
+        {
+          "sessionId": "1e640f4f-ea30-4d5b-9b26-78a034120369",
+          "tool": "memory.delete",
+          "args": {
+            "actor": "synthetic-live-operator",
+            "id": "4b606ba6-4bd5-4658-83ce-412d0c4eb135"
+          },
+          "candidates": [],
+          "result": {
+            "textResultForLlm": "Deleted memory 4b606ba6-4bd5-4658-83ce-412d0c4eb135",
+            "resultType": "success",
+            "toolTelemetry": {
+              "id": "4b606ba6-4bd5-4658-83ce-412d0c4eb135",
+              "deleted": true
+            }
+          }
+        },
+        {
+          "sessionId": "1e640f4f-ea30-4d5b-9b26-78a034120369",
+          "tool": "memory.write",
+          "args": {
+            "memoryId": "live-successor",
+            "class": "DECISION",
+            "author": "synthetic-live-operator",
+            "title": "Live trial replacement",
+            "content": "Live trial release signing code is SIGN-VIOLET-61."
+          },
+          "providerKey": "live-successor",
+          "candidates": [],
+          "result": {
+            "textResultForLlm": "Stored DECISION memory b9d22cd0-8d47-4a78-89f5-d890eec199a2 at .squad\\decisions\\inbox\\synthetic-live-operator-live-trial-replacement-b9d22cd0.md",
+            "resultType": "success",
+            "toolTelemetry": {
+              "id": "b9d22cd0-8d47-4a78-89f5-d890eec199a2",
+              "class": "DECISION",
+              "path": ".squad\\decisions\\inbox\\synthetic-live-operator-live-trial-replacement-b9d22cd0.md",
+              "stored": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "label": "supersede-check-fresh",
+      "sessionId": "5cb34c37-bc2a-418f-afeb-5164bdd92373",
+      "prompt": "This is a bounded synthetic Squad Direct Mode factual memory exercise. The local synthetic team is configured. No delegation, nested agents, shell, private files, or other services. Only use the memorybridge governed tools. Do not ask questions. Call memory_search query \"Live trial\"; report only the current signing fact and valid control from the response. Do not infer absent facts or use other sources.",
+      "answer": "Current signing code: **SIGN-VIOLET-61**. Valid control: **CONTROL-JADE-43**.",
+      "calls": [
+        {
+          "sessionId": "5cb34c37-bc2a-418f-afeb-5164bdd92373",
+          "tool": "memory.search",
+          "args": {
+            "query": "Live trial"
+          },
+          "candidates": [
+            {
+              "id": "live-control",
+              "title": "Live trial fact",
+              "snippet": "Live trial release valid control is CONTROL-JADE-43.",
+              "class": "DECISION",
+              "loadGuidance": "ALWAYS",
+              "path": "dolt-poc:synthetic-live-project:live-control"
+            },
+            {
+              "id": "live-successor",
+              "title": "Live trial replacement",
+              "snippet": "Live trial release signing code is SIGN-VIOLET-61.",
+              "class": "DECISION",
+              "loadGuidance": "ALWAYS",
+              "path": "dolt-poc:synthetic-live-project:live-successor"
+            },
+            {
+              "id": "live-forget",
+              "title": "Live trial fact",
+              "snippet": "Live trial release routing code is ROUTE-COBALT-17.",
+              "class": "DECISION",
+              "loadGuidance": "ALWAYS",
+              "path": "dolt-poc:synthetic-live-project:live-forget"
+            },
+            {
+              "id": "live-prior",
+              "title": "Live trial fact",
+              "snippet": "Live trial release signing code is SIGN-AMBER-29.",
+              "class": "DECISION",
+              "loadGuidance": "ALWAYS",
+              "path": "dolt-poc:synthetic-live-project:live-prior"
+            }
+          ],
+          "result": {
+            "textResultForLlm": "fa20dbf3-5105-4516-8437-0cdd3a542cf4 [DECISION] Live trial fact: title: \"Live trial fact\"\nb9d22cd0-8d47-4a78-89f5-d890eec199a2 [DECISION] Live trial replacement: title: \"Live trial replacement\"\nlive-control [DECISION] Live trial fact: Live trial release valid control is CONTROL-JADE-43.\nlive-successor [DECISION] Live trial replacement: Live trial release signing code is SIGN-VIOLET-61.",
+            "resultType": "success",
+            "toolTelemetry": {
+              "count": 4,
+              "results": [
+                {
+                  "id": "fa20dbf3-5105-4516-8437-0cdd3a542cf4",
+                  "class": "DECISION",
+                  "title": "Live trial fact",
+                  "path": ".squad\\decisions\\inbox\\synthetic-live-operator-live-trial-fact-fa20dbf3.md"
+                },
+                {
+                  "id": "b9d22cd0-8d47-4a78-89f5-d890eec199a2",
+                  "class": "DECISION",
+                  "title": "Live trial replacement",
+                  "path": ".squad\\decisions\\inbox\\synthetic-live-operator-live-trial-replacement-b9d22cd0.md"
+                },
+                {
+                  "id": "live-control",
+                  "class": "DECISION",
+                  "title": "Live trial fact",
+                  "path": "dolt-poc:synthetic-live-project:live-control"
+                },
+                {
+                  "id": "live-successor",
+                  "class": "DECISION",
+                  "title": "Live trial replacement",
+                  "path": "dolt-poc:synthetic-live-project:live-successor"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "label": "final-independent-fresh",
+      "sessionId": "2b35596c-27a7-40a6-8ef5-f1f1cf1d3ab2",
+      "prompt": "This is a bounded synthetic Squad Direct Mode factual memory exercise. The local synthetic team is configured. No delegation, nested agents, shell, private files, or other services. Only use the memorybridge governed tools. Do not ask questions. Call memory_search query \"Live trial\". Report current release facts and valid control strictly from that tool response. Do not infer absent facts, do not write, and do not use any other source.",
+      "answer": "Squad v0.0.0-source\n\nCurrent Live trial release facts:\n- **Signing code:** `SIGN-VIOLET-61`\n- **Valid control:** `CONTROL-JADE-43`",
+      "calls": [
+        {
+          "sessionId": "2b35596c-27a7-40a6-8ef5-f1f1cf1d3ab2",
+          "tool": "memory.search",
+          "args": {
+            "query": "Live trial"
+          },
+          "candidates": [
+            {
+              "id": "live-control",
+              "title": "Live trial fact",
+              "snippet": "Live trial release valid control is CONTROL-JADE-43.",
+              "class": "DECISION",
+              "loadGuidance": "ALWAYS",
+              "path": "dolt-poc:synthetic-live-project:live-control"
+            },
+            {
+              "id": "live-successor",
+              "title": "Live trial replacement",
+              "snippet": "Live trial release signing code is SIGN-VIOLET-61.",
+              "class": "DECISION",
+              "loadGuidance": "ALWAYS",
+              "path": "dolt-poc:synthetic-live-project:live-successor"
+            }
+          ],
+          "result": {
+            "textResultForLlm": "live-control [DECISION] Live trial fact: Live trial release valid control is CONTROL-JADE-43.\nlive-successor [DECISION] Live trial replacement: Live trial release signing code is SIGN-VIOLET-61.",
+            "resultType": "success",
+            "toolTelemetry": {
+              "count": 2,
+              "results": [
+                {
+                  "id": "live-control",
+                  "class": "DECISION",
+                  "title": "Live trial fact",
+                  "path": "dolt-poc:synthetic-live-project:live-control"
+                },
+                {
+                  "id": "live-successor",
+                  "class": "DECISION",
+                  "title": "Live trial replacement",
+                  "path": "dolt-poc:synthetic-live-project:live-successor"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "topology": "two real clones + filesystem remote; separate durable local SDK roots A and B",
+  "hostActions": "exact-fingerprint acceptance, explicit SQL retirement and checkpoint/push/pull; actual stale B rewrites",
+  "result": "PASS",
+  "offlineChallenge": {
+    "staleAcceptedBeforeMerge": 2,
+    "staleReturnedAfterMerge": 0
+  },
+  "durableRoots": {
+    "writer": "A",
+    "reader": "B",
+    "forget": "A (restarted)",
+    "supersede": "A (restarted)",
+    "supersedeCheck": "A (restarted)",
+    "final": "B (restarted)"
+  }
+}

@@ -1,0 +1,488 @@
+{
+  "observedAt": "2026-11-08T11:34:50.391Z",
+  "cliVersion": "GitHub Copilot CLI 1.0.92-3.\nRun 'copilot version' to check for updates.",
+  "engine": "dolt version 2.7.2",
+  "coordinatorSha256": "63f0dc8fc8c9d930f0221d8ea9517d5c235d0d769d3c9ff0d2d94b2b0ad40a5c",
+  "integration": "modified LOCAL Squad SDK build; stock squad state-mcp discovers trusted project provider factory",
+  "trials": [
+    {
+      "label": "writer",
+      "sessionId": "3eab9fb8-d8db-44db-b8fe-52a24738beb3",
+      "prompt": "This is a bounded synthetic Squad Direct Mode factual memory exercise. The local synthetic team is configured. No delegation, nested agents, shell, private files, or other services. Only use the squadnative governed memory tools. Do not ask questions. Use memory.write once for EACH of these three synthetic facts, with class DECISION, author synthetic-live-operator, title Live trial fact, and the specified memoryId: Live trial release routing code is ROUTE-COBALT-17. Live trial release signing code is SIGN-AMBER-29. Live trial release valid control is CONTROL-JADE-43.. Do not supply any memoryId or metadata; native runtime supplies stable identity.. Confirm which three writes succeeded; do not search.",
+      "answer": "All three **DECISION** writes succeeded with author `synthetic-live-operator` and title `Live trial fact`:\n\n- Routing code: `ROUTE-COBALT-17`\n- Signing code: `SIGN-AMBER-29`\n- Valid control: `CONTROL-JADE-43`\n\nThe native runtime supplied each stable identity. No search was performed.",
+      "calls": [
+        {
+          "tool": "memory.write",
+          "args": {
+            "class": "DECISION",
+            "author": "synthetic-live-operator",
+            "title": "Live trial fact",
+            "content": "Live trial release routing code is ROUTE-COBALT-17."
+          },
+          "runtimeToolName": "squadnative-memory-write",
+          "transport": "stdio",
+          "result": {
+            "textResultForLlm": "Stored DECISION memory 08d0bc9f-eebe-4f3b-a8f9-081b8f1bfe1c at .squad\\decisions\\inbox\\synthetic-live-operator-live-trial-fact-08d0bc9f.md",
+            "resultType": "success"
+          }
+        },
+        {
+          "tool": "memory.write",
+          "args": {
+            "class": "DECISION",
+            "author": "synthetic-live-operator",
+            "title": "Live trial fact",
+            "content": "Live trial release signing code is SIGN-AMBER-29."
+          },
+          "runtimeToolName": "squadnative-memory-write",
+          "transport": "stdio",
+          "result": {
+            "textResultForLlm": "Stored DECISION memory 4a22a04d-004c-43e8-87f5-ec19ccc6f774 at .squad\\decisions\\inbox\\synthetic-live-operator-live-trial-fact-4a22a04d.md",
+            "resultType": "success"
+          }
+        },
+        {
+          "tool": "memory.write",
+          "args": {
+            "class": "DECISION",
+            "author": "synthetic-live-operator",
+            "title": "Live trial fact",
+            "content": "Live trial release valid control is CONTROL-JADE-43."
+          },
+          "runtimeToolName": "squadnative-memory-write",
+          "transport": "stdio",
+          "result": {
+            "textResultForLlm": "Stored DECISION memory 5b145ace-241e-4168-893b-b5ed50c89096 at .squad\\decisions\\inbox\\synthetic-live-operator-live-trial-fact-5b145ace.md",
+            "resultType": "success"
+          }
+        }
+      ],
+      "discovery": [
+        {
+          "event": "native-provider-discovered",
+          "providerId": "dolt-poc",
+          "configOrigin": ".squad/config.json",
+          "module": ".squad\\providers\\live\\native-factory.mjs"
+        }
+      ],
+      "providerWrites": [
+        {
+          "event": "native-provider-write",
+          "sourceId": "5b145ace-241e-4168-893b-b5ed50c89096",
+          "content": "Live trial release valid control is CONTROL-JADE-43.",
+          "result": {
+            "id": "native-5b145ace-241e-4168-893b-b5ed50c89096",
+            "path": "dolt-poc:synthetic-live-project:native-5b145ace-241e-4168-893b-b5ed50c89096"
+          }
+        },
+        {
+          "event": "native-provider-write",
+          "sourceId": "4a22a04d-004c-43e8-87f5-ec19ccc6f774",
+          "content": "Live trial release signing code is SIGN-AMBER-29.",
+          "result": {
+            "id": "native-4a22a04d-004c-43e8-87f5-ec19ccc6f774",
+            "path": "dolt-poc:synthetic-live-project:native-4a22a04d-004c-43e8-87f5-ec19ccc6f774"
+          }
+        },
+        {
+          "event": "native-provider-write",
+          "sourceId": "08d0bc9f-eebe-4f3b-a8f9-081b8f1bfe1c",
+          "content": "Live trial release routing code is ROUTE-COBALT-17.",
+          "result": {
+            "id": "native-08d0bc9f-eebe-4f3b-a8f9-081b8f1bfe1c",
+            "path": "dolt-poc:synthetic-live-project:native-08d0bc9f-eebe-4f3b-a8f9-081b8f1bfe1c"
+          }
+        }
+      ]
+    },
+    {
+      "label": "reader",
+      "sessionId": "cfd4b5f4-00d9-4792-a936-32ea18eec5c5",
+      "prompt": "This is a bounded synthetic Squad Direct Mode factual memory exercise. The local synthetic team is configured. No delegation, nested agents, shell, private files, or other services. Only use the squadnative governed memory tools. Do not ask questions. Call memory.search with query \"Live trial\", then report the release routing code, signing code, and valid control strictly from that tool response. Quote the three values. Do not write.",
+      "answer": "Squad v0.0.0-source\n\nRelease routing code: \"ROUTE-COBALT-17\"  \nSigning code: \"SIGN-AMBER-29\"  \nValid control: \"CONTROL-JADE-43\"",
+      "calls": [
+        {
+          "tool": "memory.search",
+          "args": {
+            "query": "Live trial"
+          },
+          "runtimeToolName": "squadnative-memory-search",
+          "transport": "stdio",
+          "result": {
+            "textResultForLlm": "native-08d0bc9f-eebe-4f3b-a8f9-081b8f1bfe1c [DECISION] Live trial fact: Live trial release routing code is ROUTE-COBALT-17.\nnative-4a22a04d-004c-43e8-87f5-ec19ccc6f774 [DECISION] Live trial fact: Live trial release signing code is SIGN-AMBER-29.\nnative-5b145ace-241e-4168-893b-b5ed50c89096 [DECISION] Live trial fact: Live trial release valid control is CONTROL-JADE-43.",
+            "resultType": "success"
+          },
+          "candidates": [
+            {
+              "id": "native-08d0bc9f-eebe-4f3b-a8f9-081b8f1bfe1c",
+              "title": "Live trial fact",
+              "snippet": "Live trial release routing code is ROUTE-COBALT-17.",
+              "class": "DECISION",
+              "loadGuidance": "ALWAYS",
+              "path": "dolt-poc:synthetic-live-project:native-08d0bc9f-eebe-4f3b-a8f9-081b8f1bfe1c"
+            },
+            {
+              "id": "native-4a22a04d-004c-43e8-87f5-ec19ccc6f774",
+              "title": "Live trial fact",
+              "snippet": "Live trial release signing code is SIGN-AMBER-29.",
+              "class": "DECISION",
+              "loadGuidance": "ALWAYS",
+              "path": "dolt-poc:synthetic-live-project:native-4a22a04d-004c-43e8-87f5-ec19ccc6f774"
+            },
+            {
+              "id": "native-5b145ace-241e-4168-893b-b5ed50c89096",
+              "title": "Live trial fact",
+              "snippet": "Live trial release valid control is CONTROL-JADE-43.",
+              "class": "DECISION",
+              "loadGuidance": "ALWAYS",
+              "path": "dolt-poc:synthetic-live-project:native-5b145ace-241e-4168-893b-b5ed50c89096"
+            }
+          ]
+        }
+      ],
+      "discovery": [
+        {
+          "event": "native-provider-discovered",
+          "providerId": "dolt-poc",
+          "configOrigin": ".squad/config.json",
+          "module": ".squad\\providers\\live\\native-factory.mjs"
+        }
+      ],
+      "providerWrites": []
+    },
+    {
+      "label": "forget-fresh",
+      "sessionId": "bacf58d8-8067-4e75-bea2-fe65f9a4d675",
+      "prompt": "This is a bounded synthetic Squad Direct Mode factual memory exercise. The local synthetic team is configured. No delegation, nested agents, shell, private files, or other services. Only use the squadnative governed memory tools. Do not ask questions. Call memory.delete for local id \"08d0bc9f-eebe-4f3b-a8f9-081b8f1bfe1c\" with actor synthetic-live-operator. Then call memory.search query \"Live trial\". Report only currently returned release facts and control; do not guess missing facts.",
+      "answer": "- Release signing code: `SIGN-AMBER-29`\n- Release valid control: `CONTROL-JADE-43`",
+      "calls": [
+        {
+          "tool": "memory.delete",
+          "args": {
+            "actor": "synthetic-live-operator",
+            "id": "08d0bc9f-eebe-4f3b-a8f9-081b8f1bfe1c"
+          },
+          "runtimeToolName": "squadnative-memory-delete",
+          "transport": "stdio",
+          "result": {
+            "textResultForLlm": "Deleted memory 08d0bc9f-eebe-4f3b-a8f9-081b8f1bfe1c",
+            "resultType": "success"
+          }
+        },
+        {
+          "tool": "memory.search",
+          "args": {
+            "query": "Live trial"
+          },
+          "runtimeToolName": "squadnative-memory-search",
+          "transport": "stdio",
+          "result": {
+            "textResultForLlm": "5b145ace-241e-4168-893b-b5ed50c89096 [DECISION] Live trial fact: title: \"Live trial fact\"\n4a22a04d-004c-43e8-87f5-ec19ccc6f774 [DECISION] Live trial fact: title: \"Live trial fact\"\nnative-5b145ace-241e-4168-893b-b5ed50c89096 [DECISION] Live trial fact: Live trial release valid control is CONTROL-JADE-43.\nnative-4a22a04d-004c-43e8-87f5-ec19ccc6f774 [DECISION] Live trial fact: Live trial release signing code is SIGN-AMBER-29.",
+            "resultType": "success"
+          },
+          "candidates": [
+            {
+              "id": "native-5b145ace-241e-4168-893b-b5ed50c89096",
+              "title": "Live trial fact",
+              "snippet": "Live trial release valid control is CONTROL-JADE-43.",
+              "class": "DECISION",
+              "loadGuidance": "ALWAYS",
+              "path": "dolt-poc:synthetic-live-project:native-5b145ace-241e-4168-893b-b5ed50c89096"
+            },
+            {
+              "id": "native-08d0bc9f-eebe-4f3b-a8f9-081b8f1bfe1c",
+              "title": "Live trial fact",
+              "snippet": "Live trial release routing code is ROUTE-COBALT-17.",
+              "class": "DECISION",
+              "loadGuidance": "ALWAYS",
+              "path": "dolt-poc:synthetic-live-project:native-08d0bc9f-eebe-4f3b-a8f9-081b8f1bfe1c"
+            },
+            {
+              "id": "native-4a22a04d-004c-43e8-87f5-ec19ccc6f774",
+              "title": "Live trial fact",
+              "snippet": "Live trial release signing code is SIGN-AMBER-29.",
+              "class": "DECISION",
+              "loadGuidance": "ALWAYS",
+              "path": "dolt-poc:synthetic-live-project:native-4a22a04d-004c-43e8-87f5-ec19ccc6f774"
+            }
+          ]
+        }
+      ],
+      "discovery": [
+        {
+          "event": "native-provider-discovered",
+          "providerId": "dolt-poc",
+          "configOrigin": ".squad/config.json",
+          "module": ".squad\\providers\\live\\native-factory.mjs"
+        }
+      ],
+      "providerWrites": []
+    },
+    {
+      "label": "supersede-fresh",
+      "sessionId": "71bf7591-212e-4340-ab27-6ac1717155a5",
+      "prompt": "This is a bounded synthetic Squad Direct Mode factual memory exercise. The local synthetic team is configured. No delegation, nested agents, shell, private files, or other services. Only use the squadnative governed memory tools. Do not ask questions. Call memory.promote for local id \"4a22a04d-004c-43e8-87f5-ec19ccc6f774\" to POLICY with actor synthetic-live-operator. Promotion preserves content: immediately memory.delete the NEW local id returned by promotion. Then memory.write class DECISION, author synthetic-live-operator, title Live trial replacement, content \"Live trial release signing code is SIGN-VIOLET-61.\". Confirm those three actions succeeded. Do not search: host review of the proposed replacement occurs next.",
+      "answer": "Squad v0.0.0-source — all three actions succeeded: promoted the original memory to POLICY, deleted the new promoted ID `72f356e2-e293-4cb9-be4f-65769aafc05c`, and stored **Live trial replacement** as DECISION ID `739f0033-c74c-469e-8262-17e28e120f44`.",
+      "calls": [
+        {
+          "tool": "memory.promote",
+          "args": {
+            "actor": "synthetic-live-operator",
+            "id": "4a22a04d-004c-43e8-87f5-ec19ccc6f774",
+            "targetClass": "POLICY"
+          },
+          "runtimeToolName": "squadnative-memory-promote",
+          "transport": "stdio",
+          "result": {
+            "textResultForLlm": "Promoted memory 4a22a04d-004c-43e8-87f5-ec19ccc6f774 to POLICY as 72f356e2-e293-4cb9-be4f-65769aafc05c",
+            "resultType": "success"
+          }
+        },
+        {
+          "tool": "memory.delete",
+          "args": {
+            "actor": "synthetic-live-operator",
+            "id": "72f356e2-e293-4cb9-be4f-65769aafc05c"
+          },
+          "runtimeToolName": "squadnative-memory-delete",
+          "transport": "stdio",
+          "result": {
+            "textResultForLlm": "Deleted memory 72f356e2-e293-4cb9-be4f-65769aafc05c",
+            "resultType": "success"
+          }
+        },
+        {
+          "tool": "memory.write",
+          "args": {
+            "author": "synthetic-live-operator",
+            "class": "DECISION",
+            "title": "Live trial replacement",
+            "content": "Live trial release signing code is SIGN-VIOLET-61."
+          },
+          "runtimeToolName": "squadnative-memory-write",
+          "transport": "stdio",
+          "result": {
+            "textResultForLlm": "Stored DECISION memory 739f0033-c74c-469e-8262-17e28e120f44 at .squad\\decisions\\inbox\\synthetic-live-operator-live-trial-replacement-739f0033.md",
+            "resultType": "success"
+          }
+        }
+      ],
+      "discovery": [
+        {
+          "event": "native-provider-discovered",
+          "providerId": "dolt-poc",
+          "configOrigin": ".squad/config.json",
+          "module": ".squad\\providers\\live\\native-factory.mjs"
+        }
+      ],
+      "providerWrites": [
+        {
+          "event": "native-provider-write",
+          "sourceId": "72f356e2-e293-4cb9-be4f-65769aafc05c",
+          "content": "Live trial release signing code is SIGN-AMBER-29.",
+          "result": {
+            "id": "native-72f356e2-e293-4cb9-be4f-65769aafc05c",
+            "path": "dolt-poc:synthetic-live-project:native-72f356e2-e293-4cb9-be4f-65769aafc05c"
+          }
+        },
+        {
+          "event": "native-provider-write",
+          "sourceId": "739f0033-c74c-469e-8262-17e28e120f44",
+          "content": "Live trial release signing code is SIGN-VIOLET-61.",
+          "result": {
+            "id": "native-739f0033-c74c-469e-8262-17e28e120f44",
+            "path": "dolt-poc:synthetic-live-project:native-739f0033-c74c-469e-8262-17e28e120f44"
+          }
+        }
+      ]
+    },
+    {
+      "label": "supersede-check-fresh",
+      "sessionId": "ee69ba7b-0a0a-482a-92b5-2938b2930840",
+      "prompt": "This is a bounded synthetic Squad Direct Mode factual memory exercise. The local synthetic team is configured. No delegation, nested agents, shell, private files, or other services. Only use the squadnative governed memory tools. Do not ask questions. Call memory.search query \"Live trial\"; report only the current signing fact and valid control from the response. Do not infer absent facts or use other sources.",
+      "answer": "Current signing code: **SIGN-VIOLET-61**  \nValid control: **CONTROL-JADE-43**",
+      "calls": [
+        {
+          "tool": "memory.search",
+          "args": {
+            "query": "Live trial"
+          },
+          "runtimeToolName": "squadnative-memory-search",
+          "transport": "stdio",
+          "result": {
+            "textResultForLlm": "5b145ace-241e-4168-893b-b5ed50c89096 [DECISION] Live trial fact: title: \"Live trial fact\"\n739f0033-c74c-469e-8262-17e28e120f44 [DECISION] Live trial replacement: title: \"Live trial replacement\"\nnative-5b145ace-241e-4168-893b-b5ed50c89096 [DECISION] Live trial fact: Live trial release valid control is CONTROL-JADE-43.\nnative-739f0033-c74c-469e-8262-17e28e120f44 [DECISION] Live trial replacement: Live trial release signing code is SIGN-VIOLET-61.",
+            "resultType": "success"
+          },
+          "candidates": [
+            {
+              "id": "native-5b145ace-241e-4168-893b-b5ed50c89096",
+              "title": "Live trial fact",
+              "snippet": "Live trial release valid control is CONTROL-JADE-43.",
+              "class": "DECISION",
+              "loadGuidance": "ALWAYS",
+              "path": "dolt-poc:synthetic-live-project:native-5b145ace-241e-4168-893b-b5ed50c89096"
+            },
+            {
+              "id": "native-739f0033-c74c-469e-8262-17e28e120f44",
+              "title": "Live trial replacement",
+              "snippet": "Live trial release signing code is SIGN-VIOLET-61.",
+              "class": "DECISION",
+              "loadGuidance": "ALWAYS",
+              "path": "dolt-poc:synthetic-live-project:native-739f0033-c74c-469e-8262-17e28e120f44"
+            },
+            {
+              "id": "native-08d0bc9f-eebe-4f3b-a8f9-081b8f1bfe1c",
+              "title": "Live trial fact",
+              "snippet": "Live trial release routing code is ROUTE-COBALT-17.",
+              "class": "DECISION",
+              "loadGuidance": "ALWAYS",
+              "path": "dolt-poc:synthetic-live-project:native-08d0bc9f-eebe-4f3b-a8f9-081b8f1bfe1c"
+            },
+            {
+              "id": "native-4a22a04d-004c-43e8-87f5-ec19ccc6f774",
+              "title": "Live trial fact",
+              "snippet": "Live trial release signing code is SIGN-AMBER-29.",
+              "class": "DECISION",
+              "loadGuidance": "ALWAYS",
+              "path": "dolt-poc:synthetic-live-project:native-4a22a04d-004c-43e8-87f5-ec19ccc6f774"
+            }
+          ]
+        }
+      ],
+      "discovery": [
+        {
+          "event": "native-provider-discovered",
+          "providerId": "dolt-poc",
+          "configOrigin": ".squad/config.json",
+          "module": ".squad\\providers\\live\\native-factory.mjs"
+        }
+      ],
+      "providerWrites": []
+    },
+    {
+      "label": "final-independent-fresh",
+      "sessionId": "4b802918-7635-4027-8fea-39044bb323b8",
+      "prompt": "This is a bounded synthetic Squad Direct Mode factual memory exercise. The local synthetic team is configured. No delegation, nested agents, shell, private files, or other services. Only use the squadnative governed memory tools. Do not ask questions. Call memory.search query \"Live trial\". Report current release facts and valid control strictly from that tool response. Do not infer absent facts, do not write, and do not use any other source.",
+      "answer": "Squad v0.0.0-source\n\nCurrent Live trial release facts:\n- **Signing code:** `SIGN-VIOLET-61`\n- **Valid control:** `CONTROL-JADE-43`",
+      "calls": [
+        {
+          "tool": "memory.search",
+          "args": {
+            "query": "Live trial"
+          },
+          "runtimeToolName": "squadnative-memory-search",
+          "transport": "stdio",
+          "result": {
+            "textResultForLlm": "native-5b145ace-241e-4168-893b-b5ed50c89096 [DECISION] Live trial fact: Live trial release valid control is CONTROL-JADE-43.\nnative-739f0033-c74c-469e-8262-17e28e120f44 [DECISION] Live trial replacement: Live trial release signing code is SIGN-VIOLET-61.",
+            "resultType": "success"
+          },
+          "candidates": [
+            {
+              "id": "native-5b145ace-241e-4168-893b-b5ed50c89096",
+              "title": "Live trial fact",
+              "snippet": "Live trial release valid control is CONTROL-JADE-43.",
+              "class": "DECISION",
+              "loadGuidance": "ALWAYS",
+              "path": "dolt-poc:synthetic-live-project:native-5b145ace-241e-4168-893b-b5ed50c89096"
+            },
+            {
+              "id": "native-739f0033-c74c-469e-8262-17e28e120f44",
+              "title": "Live trial replacement",
+              "snippet": "Live trial release signing code is SIGN-VIOLET-61.",
+              "class": "DECISION",
+              "loadGuidance": "ALWAYS",
+              "path": "dolt-poc:synthetic-live-project:native-739f0033-c74c-469e-8262-17e28e120f44"
+            }
+          ]
+        }
+      ],
+      "discovery": [
+        {
+          "event": "native-provider-discovered",
+          "providerId": "dolt-poc",
+          "configOrigin": ".squad/config.json",
+          "module": ".squad\\providers\\live\\native-factory.mjs"
+        }
+      ],
+      "providerWrites": []
+    }
+  ],
+  "topology": "two real clones + filesystem remote; separate durable local SDK roots A and B",
+  "nativeCoreDiscoveryAudit": [
+    {
+      "durableRoot": "A",
+      "records": [
+        {
+          "action": "configure",
+          "provider": "dolt-poc",
+          "path": ".squad\\providers\\live\\native-factory.mjs",
+          "reason": "Loaded explicitly trusted project memory provider factory"
+        },
+        {
+          "action": "configure",
+          "provider": "dolt-poc",
+          "path": ".squad\\providers\\live\\native-factory.mjs",
+          "reason": "Loaded explicitly trusted project memory provider factory"
+        },
+        {
+          "action": "configure",
+          "provider": "dolt-poc",
+          "path": ".squad\\providers\\live\\native-factory.mjs",
+          "reason": "Loaded explicitly trusted project memory provider factory"
+        },
+        {
+          "action": "configure",
+          "provider": "dolt-poc",
+          "path": ".squad\\providers\\live\\native-factory.mjs",
+          "reason": "Loaded explicitly trusted project memory provider factory"
+        }
+      ]
+    },
+    {
+      "durableRoot": "B",
+      "records": [
+        {
+          "action": "configure",
+          "provider": "dolt-poc",
+          "path": ".squad\\providers\\live\\native-factory.mjs",
+          "reason": "Loaded explicitly trusted project memory provider factory"
+        },
+        {
+          "action": "configure",
+          "provider": "dolt-poc",
+          "path": ".squad\\providers\\live\\native-factory.mjs",
+          "reason": "Loaded explicitly trusted project memory provider factory"
+        }
+      ]
+    }
+  ],
+  "nativeLaunch": {
+    "mode": "full-cli-entrypoint",
+    "squadVersion": "0.13.1",
+    "helpConfirmed": [
+      "squad v",
+      "memory",
+      "state-mcp"
+    ],
+    "entrypoint": "packages/squad-cli/dist/cli-entry.js",
+    "mcpArguments": [
+      "state-mcp"
+    ],
+    "entrypointSha256": "e5d255ad2c30bb58e4b14c7335e07f8cde32d0f8595c14f035d3ece9d09349b9",
+    "directFunctionBypass": false
+  },
+  "hostActions": "exact-fingerprint acceptance, explicit SQL retirement and checkpoint/push/pull; actual stale B rewrites",
+  "result": "PASS",
+  "offlineChallenge": {
+    "staleAcceptedBeforeMerge": 2,
+    "staleReturnedAfterMerge": 0
+  },
+  "durableRoots": {
+    "writer": "A",
+    "reader": "B",
+    "forget": "A (restarted)",
+    "supersede": "A (restarted)",
+    "supersedeCheck": "A (restarted)",
+    "final": "B (restarted)"
+  }
+}

@@ -3,7 +3,14 @@
 An optional Dolt-backed implementation of Squad's `MemoryProvider` seam, with
 synthetic tests for reviewed sharing, stale replicas, and retrieval lifecycle.
 **Not a production integration, adoption announcement, or performance benchmark.**
-No Beads adapter is implemented. No real agent/model session is run.
+No Beads adapter is implemented. Real Copilot CLI **Squad custom-agent sessions**
+have now been exercised both through an explicit sample MCP bridge and through
+stock Squad state-MCP tools with **native optional project-provider discovery
+in a modified local SDK build**. The published pinned SDK does not include the
+native feature. See [bridge setup](docs/LIVE.md) and [native setup/evidence](docs/NATIVE.md).
+Native source lives on the experimental
+[Squad fork feature branch](https://github.com/tamirdresher/squad/tree/feature/native-memory-provider-discovery),
+not a released upstream SDK.
 
 ## Quick start
 
@@ -27,7 +34,7 @@ npm run test:mutation
 
 On macOS/Linux, set `DOLT_BIN` to the extracted executable, or put `dolt` on
 `PATH`; the npm commands are the same. Those platforms remain unvalidated here.
-`npm test` and `npm run demo` run the same 14 assertions; demo prints more detail.
+`npm test` and `npm run demo` run the same 22 tests; demo prints more detail.
 Missing Dolt causes the integration suite to **fail**, not pass through mocks or
 intentional skips. A failed setup may be displayed as skipped individual tests
 by Vitest, but the suite and process exit are failures.
@@ -46,7 +53,7 @@ installed `node_modules/@bradygaster/squad-sdk`, never a global install.
 Unexpected SDK bytes fail closed; re-running checks the exact patched bytes.
 See [provenance and patch boundaries](docs/PROVENANCE.md).
 
-## What actually runs
+## What the deterministic tests actually run
 
 ```text
 patched public LocalMemoryStore -> DoltMemoryProvider A -> clone-a
@@ -137,7 +144,7 @@ explicit resolution. The sample never automatically chooses a conflict winner.
 | Sharing | Depends on storage/provider; not a universal sync protocol | Explicit checkpoint/push/pull; demonstrated only on one machine | Upstream documents `bd dolt push/pull`; not tested here |
 | Review | SDK classification/routing; seam has no approval protocol | Exact payload fingerprint acceptance; merge is not approval | No equivalence to this acceptance policy established |
 | Retirement | Experiment patches exact acknowledged replica exclusion at local retrieval boundary | Separate durable SQL retirement survives demonstrated stale-key rewrites after sync | Deletion/revocation semantics not evaluated |
-| Agent context | Host chooses how to consume tool results | Real `memory.search` output explicitly composed into real charter compiler | Upstream describes `bd prime` and remembered facts; no integration here |
+| Agent context | Host chooses how to consume tool results | Deterministic host-composed charter test; separately, real CLI Squad sessions consume genuine MCP responses through an explicit bridge | Upstream describes `bd prime` and remembered facts; no integration here |
 | Cost/performance | Not benchmarked here | Not benchmarked here | Not installed or benchmarked here |
 
 Beads and Dolt are not interchangeable alternatives: current Beads documentation
@@ -153,7 +160,8 @@ conflict” is **not** adopted as a measured guarantee here.
 
 See [standalone validation results](docs/RESULTS.md) for actual commands,
 environment, test counts, and the negative missing-engine and mutation checks.
-The 14-test suite covers 7 real-engine scenarios, 2 command/input checks, and
+The 19-test suite covers 7 real-engine scenarios, 2 command/input checks,
+5 bridge/protocol/evidence contract checks, and
 5 backend-neutral SDK lifecycle cases (the latter use a deliberately stale
 synthetic provider and are not additional Dolt integration tests).
 
@@ -172,6 +180,25 @@ LLM text to `compileCharterFull` as host-provided decisions. The final compiled
 prompt excludes retired markers while retaining a current control and reviewed
 replacement. This is **explicit host composition**, NOT proof of automatic
 runtime injection, model inference, or all possible context assembly paths.
+That original compiler test remains separate from the subsequent live CLI trial.
+
+### Live Copilot CLI follow-up
+
+`npm run live` invokes the public built-in `Squad` custom agent in six fresh
+authenticated CLI sessions. A writer actually calls governed MCP tools; an
+independent reader on clone B answers from accepted shared provider facts.
+Fresh sessions on restarted root A delete/promote records and challenge the
+actual SDK tool path with pinned stale provider candidates. After real offline
+B rewrites and Dolt sync, a final fresh B session retrieves and answers with
+only the valid control and reviewed replacement.
+
+This uses actual upstream `ToolRegistry` handlers, the patched SDK, real
+`FSStorageProvider` roots, and real Dolt. The small bridge supplies the project
+scope/stable memory ID missing from the upstream write-tool schema. Acceptance
+and provider retirement/sync remain explicit synthetic **host actions**.
+The CLI consumes genuine MCP tool responses directly; this trial does not use
+the charter compiler or claim automatic memory injection.
+See [live report](docs/LIVE.md) and [selected synthetic evidence](docs/LIVE-EVIDENCE.json).
 
 Promotion copies content unchanged into a legitimate successor. Therefore the
 obsolete-text scenario explicitly deletes that intermediate local successor
@@ -204,9 +231,10 @@ graph/workflow features, rather than knowledge-provider storage, are needed.
 * Commands have 30-second timeouts and 2 MiB output limits; payload/query are
   limited to 16 KiB and provider retrieval to 100 records per scope. Timeout does
   not prove rollback; inspect state and retry stable keys/payloads.
-* No hosted remote, cloud auth, network filesystem, cross-machine, backup/restore,
-  scale/latency comparison, production policy integration, or model execution
-  has been validated. Results are functional correctness evidence only.
+* No hosted Dolt remote, Dolt cloud auth, network filesystem, cross-machine,
+  backup/restore, scale/latency comparison, or production policy integration
+  has been validated. CLI authentication was used naturally, not separately
+  audited. Six live-session observations are not a formal model safety guarantee.
 
 ## License
 
